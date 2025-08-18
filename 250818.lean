@@ -484,7 +484,7 @@ example (h : s ⊆ t) : s \ u ⊆ t \ u := by
 
 example : s \ t ∪ t \ s = (s ∪ t) \ (s ∩ t) := by
   funext h
-  simp
+  apply eq_iff_iff.mpr
   constructor
   intro x
   constructor
@@ -510,16 +510,15 @@ example : s \ t ∪ t \ s = (s ∪ t) \ (s ∩ t) := by
   intro e
   apply g₂ 
   constructor
-  assumption
-  assumption
+  repeat assumption
   right
   constructor
   assumption
   intro e₁
   apply g₂
   constructor
-  assumption
-  assumption
+  repeat assumption
+
 
 
 example : s ∩ t ∪ s ∩ u ⊆ s ∩ (t ∪ u) := by
